@@ -45,7 +45,7 @@ func (s *orderService) PlaceAnOrder(req model.OrderRequest) model.Response[*mode
 }
 
 func (s *orderService) ValidateCouponCode(code string) model.Response[bool] {
-	valid := initdata.ValidateCode(code)
+	valid := initdata.CheckCodeExistsInAllowedCodes(code)
 	return model.Response[bool]{
 		Data: valid,
 		Status: model.StatusOK,

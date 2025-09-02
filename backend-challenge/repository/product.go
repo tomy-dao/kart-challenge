@@ -1,7 +1,6 @@
 package repository
 
 import (
-	"fmt"
 	"local/model"
 )
 
@@ -132,8 +131,6 @@ func (r *productRepository) GetAllProducts() model.Response[[]*model.Product] {
 }
 
 func (r *productRepository) GetProductById(id string) model.Response[*model.Product] {
-	fmt.Println("GetProductById")
-	fmt.Println(id)
 	for _, product := range data {
 		if product.ID == id {
 			return model.Response[*model.Product]{

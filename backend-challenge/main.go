@@ -1,6 +1,9 @@
 package main
 
-import "local/cmd"
+import (
+	"local/cmd"
+	initdata "local/repository/data"
+)
 
 func main() {
 	// db, err := bolt.Open("./repository/data/couponbase1.db", 0o644, &bolt.Options{Timeout: 1 * time.Minute})
@@ -8,6 +11,6 @@ func main() {
 	// defer db.Close()
 	// exists := initdata.ValidateCode("NXAYTZ6M")
 	// fmt.Println(exists)
-	// initdata.InitData()
+	initdata.InitData()
 	cmd.Run()
 }

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # Go Backend
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: backend-challenge
+    environment:
+      HTTP_PORT: 80
+      SERVER_HOST: 0.0.0.0
+    command: sh -c 'go mod tidy && gow run .'
+    ports:
+      - "80:80"
+    networks:
+      - backend-challenge-network
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./:/app
+
+networks:
+  backend-challenge-network:
+    driver: bridge

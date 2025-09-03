@@ -97,6 +97,8 @@ func handleAllowedCodes(codes []map[string]bool) map[string]bool {
 		timeEnd := time.Now()
 		fmt.Println("handleAllowedCodes 1 time taken: ", timeEnd.Sub(start))
 	}()
+
+	
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
